@@ -1,0 +1,15 @@
+.btn-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bold;
+  gap: 10px;
+  align-items: self-start;
+}
+.btn-icon:hover {
+  color: orange;
+}
+
+.anticon {
+  vertical-align: unset;
+}
