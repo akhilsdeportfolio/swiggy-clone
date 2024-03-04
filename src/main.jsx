@@ -1,18 +1,22 @@
-import React, { Profiler, Suspense, lazy } from "react";
+import React, { Profiler, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import FallbackLoader from "./components/molecules/FallbackLoader/index.jsx";
 import { Provider } from "react-redux";
 import { store } from "./store.js";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-const HomePage = lazy(() => import("./components/pages/HomePage"));
+import { LazyHomeTemplate } from "./utils/lazyComponents.js";
+import HomePage from "./components/pages/HomePage/index.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <LazyHomeTemplate />,
     children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
       {
         path: "/help",
         element: <div>Iam help</div>,

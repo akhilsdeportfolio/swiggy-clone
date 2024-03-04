@@ -1,5 +1,6 @@
 import propTypes from "prop-types";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Logo({
   showTitle = false,
@@ -7,10 +8,16 @@ export default function Logo({
   alt = "Logo Swiggy",
   title = "Swiggy",
 }) {
+  const navigate = useNavigate();
+
+  function handleLogoClick() {
+    navigate("/");
+  }
+
   return (
-    <div className="logo">
+    <div className="logo" onClick={handleLogoClick}>
       <div>
-        <img src={url} alt={alt} style={{ width: "50px", height: "50px" }} />
+        <img className="image" src={url} alt={alt} />
       </div>
       {showTitle && (
         <div>

@@ -15,7 +15,7 @@ export default function IconButton({
     <div className="btn-icon" {...rest}>
       <div>
         {showBadge && (
-          <Badge showZero size="default" count={count}>
+          <Badge showZero size="small" count={count}>
             {icon}
           </Badge>
         )}
@@ -23,7 +23,7 @@ export default function IconButton({
       </div>
       <div>
         {title}
-        {showTag && <sup className="ml-1 text-orange-500">New</sup>}
+        {showTag && <sup className="ml-1 text-orange-500">NEW</sup>}
       </div>
     </div>
   );
