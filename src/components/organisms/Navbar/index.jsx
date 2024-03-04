@@ -1,3 +1,8 @@
+import { useDispatch, useSelector } from "react-redux";
+import Logo from "../../atoms/Logo";
+import TkCard from "../../molecules/Card";
+import MenuList from "../../molecules/MenuList";
+import { incrementByAmount } from "../../../features/counter/counterSlice";
 import {
   PayCircleOutlined,
   QuestionCircleOutlined,
@@ -5,14 +10,8 @@ import {
   ShoppingCartOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import "./App.css";
-import Logo from "./components/atoms/Logo";
-import MenuList from "./components/molecules/MenuList";
-import TkCard from "./components/molecules/Card";
-import { useDispatch, useSelector } from "react-redux";
-import { incrementByAmount } from "./features/counter/counterSlice";
 
-function App() {
+export default function Navbar() {
   const count = useSelector((store) => store.counter.count);
   const dispatch = useDispatch();
 
@@ -25,27 +24,31 @@ function App() {
       icon: <SearchOutlined />,
       title: "Search",
       key: "search",
+      path: "search",
     },
     {
       icon: <PayCircleOutlined />,
       title: "Offers",
       key: "heart",
       showTag: true,
+      path: "offers",
     },
     {
       icon: <QuestionCircleOutlined />,
       title: "Help",
       key: "help",
+      path: "help",
     },
     {
       icon: <UserOutlined />,
       title: "Sign In",
       key: "liked",
+      path: "login",
     },
     {
       icon: <ShoppingCartOutlined style={{ fontSize: 24 }} />,
       title: "Cart",
-      key: "liked",
+      key: "shopping",
       showBadge: true,
       count: count,
       onClick: () => handleClick("liked"),
@@ -65,9 +68,8 @@ function App() {
           <Logo />
           <MenuList items={items} />
         </div>
+        <></>
       </TkCard>
     </>
   );
 }
-
-export default App;
